@@ -9,6 +9,7 @@ import useCounter from '../../hooks/useCounter';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Tooltip from '@mui/material/Tooltip';
 
 
 export interface IitemStock {
@@ -83,22 +84,28 @@ const ItemCount: React.FC<IitemStock> = ({stockAvailable,onAdd}) => {
         }}
       >
         <ButtonGroup color="primary" aria-label="medium button group">
-          <Button variant="outlined" onClick={reset}>
-            <RestartAltRoundedIcon />
-          </Button>
-          <Button
-            key="increment"
-            disabled={displayIncrement}
-            onClick={() => handlerClickIncrement()}
-          >
-            <AddIcon />
-          </Button>
+          <Tooltip title="Limpiar cantidad de productos" followCursor>
+            <Button variant="outlined" onClick={reset}>
+              <RestartAltRoundedIcon />
+            </Button>
+          </Tooltip>
+          <Tooltip title="Agregar cantidad de productos" followCursor>
+            <Button
+              key="increment"
+              disabled={displayIncrement}
+              onClick={() => handlerClickIncrement()}
+            >
+              <AddIcon />
+            </Button>
+          </Tooltip>
           <Button key="Amount" color="primary" aria-readonly="true">
             <strong>{count}</strong>
           </Button>
-          <Button key="decrement" onClick={() => handlerClickDecrement()}>
-            <RemoveIcon />
-          </Button>
+          <Tooltip title="Remover cantidad de productos" followCursor>
+            <Button key="decrement" onClick={() => handlerClickDecrement()}>
+              <RemoveIcon />
+            </Button>
+          </Tooltip>
         </ButtonGroup>
       </Box>
       <Box>
