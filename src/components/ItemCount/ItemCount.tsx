@@ -84,12 +84,12 @@ const ItemCount: React.FC<IitemStock> = ({stockAvailable,onAdd}) => {
         }}
       >
         <ButtonGroup color="primary" aria-label="medium button group">
-          <Tooltip title="Limpiar cantidad de productos" followCursor>
+          <Tooltip title="Limpiar cantidad de productos" arrow>
             <Button variant="outlined" onClick={reset}>
               <RestartAltRoundedIcon />
             </Button>
           </Tooltip>
-          <Tooltip title="Agregar cantidad de productos" followCursor>
+          <Tooltip title="Agregar cantidad de productos" arrow>
             <Button
               key="increment"
               disabled={displayIncrement}
@@ -101,7 +101,7 @@ const ItemCount: React.FC<IitemStock> = ({stockAvailable,onAdd}) => {
           <Button key="Amount" color="primary" aria-readonly="true">
             <strong>{count}</strong>
           </Button>
-          <Tooltip title="Remover cantidad de productos" followCursor>
+          <Tooltip title="Remover cantidad de productos" arrow>
             <Button key="decrement" onClick={() => handlerClickDecrement()}>
               <RemoveIcon />
             </Button>
